@@ -89,7 +89,7 @@ app.use('/api', rateLimit({
 
 // 🌐 CONEXÃO COM O MONGO
 mongoose.connect(process.env.MONGO_URI, {
-  dbName: 'laudos-medicos',
+  dbName: 'LaudoFy',
   serverSelectionTimeoutMS: 20000,
   socketTimeoutMS: 45000,
   retryWrites: true,
