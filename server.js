@@ -29,7 +29,7 @@ const server = http.createServer(app);
 
 // 🔐 CORS PRIMÁRIO – OBRIGATÓRIO ANTES DE TUDO
 const allowedOrigins = [
-  'https://laudofy.vercel.app',
+  'https://laudofy.fytenza.com.br',
   'http://localhost:5173'
 ];
 
@@ -53,7 +53,7 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
       frameSrc: ["'self'", "https://www.google.com"],
-      connectSrc: ["'self'", "https://laudofy.vercel.app/l", "https://laudofy-backend-production.up.railway.app", "wss:"],
+      connectSrc: ["'self'", "https://laudofy.fytenza.com.br", "https://laudofy-backend-production.up.railway.app", "wss:"],
       imgSrc: ["'self'", "data:", "https://www.google.com"],
       styleSrc: ["'self'", "'unsafe-inline'"]
     }
