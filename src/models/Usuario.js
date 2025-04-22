@@ -92,12 +92,10 @@ UsuarioSchema.methods.limparResetToken = function() {
 
 // Verifica o token de redefinição usando comparação segura
 UsuarioSchema.methods.verificarResetToken = function(token) {
-    const hashedToken = crypto.createHash('sha256').update(token).digest();
-    const storedToken = Buffer.from(this.resetSenhaToken, 'hex');
-
+    const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
     try {
         return (
-            crypto.timingSafeEqual(storedToken, hashedToken) &&
+            hashedToken === this.resetSenhaToken &&
             this.resetSenhaExpira > Date.now() &&
             (this.resetSenhaTentativas || 0) < 5
         );
