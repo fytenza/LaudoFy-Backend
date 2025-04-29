@@ -113,6 +113,7 @@ mongoose.connect(process.env.MONGO_URI, {
       secure: isProduction,
       httpOnly: true,
       sameSite: sameSiteValue,
+      domain: '.laudofy.fytenza.com.br',
       maxAge: 14 * 24 * 60 * 60 * 1000
     }
   }));
