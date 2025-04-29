@@ -77,7 +77,6 @@ UsuarioSchema.methods.toJSON = function() {
 // Gera token de reset de senha
 UsuarioSchema.methods.gerarResetToken = function() {
     const resetToken = crypto.randomBytes(20).toString('hex');
-    this.resetSenhaToken = crypto.createHash('sha256').update(resetToken).digest('hex');
     this.resetSenhaExpira = Date.now() + 3600000; // 1 hora
     this.resetSenhaTentativas = 0;
     return resetToken;
