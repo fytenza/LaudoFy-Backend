@@ -51,7 +51,7 @@ exports.gerarPdfLaudo = async (laudoId, exame, tipoExame, medicoNome, medicoId, 
     }
 
     const usuarioMedico = await Usuario.findById(medicoId).populate('crm');
-    const publicLink = `${process.env.FRONTEND_URL}publico/${laudoId}`;
+    const publicLink = `${process.env.FRONTEND_URL}/publico/${laudoId}`;
     
     // Gerar QR Code
     let qrCodeBuffer;
