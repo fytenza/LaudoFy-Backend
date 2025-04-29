@@ -15,7 +15,7 @@ const ExameSchema = new mongoose.Schema({
             if (typeof v === 'string' && v.includes(':')) return v;
             
             const normalizedValue = String(v).trim().toUpperCase();
-            const validValues = ['ECG', 'HOLTER', 'ERGOMETRIA', 'OUTRO'];
+            const validValues = ['ECG', 'HOLTER', 'ERGOMETRIA', 'OUTRO', 'MAPA'];
             
             if (!validValues.includes(normalizedValue)) {
                 throw new Error(`Tipo de exame inválido: ${v}. Valores permitidos: ${validValues.join(', ')}`);

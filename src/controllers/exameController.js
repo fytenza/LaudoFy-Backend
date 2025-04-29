@@ -28,7 +28,7 @@ const calcularIdade = (dataNascimento) => {
 // Validações para criação de exame
 exports.validarExame = [
     body('paciente').notEmpty().withMessage('O nome do paciente é obrigatório'),
-    body('tipoExame').isIn(['ECG', 'Holter', 'Ergometria', 'Outro']).withMessage('Tipo de exame inválido'),
+    body('tipoExame').isIn(['ECG', 'Holter', 'Ergometria', 'Mapa', 'Outro']).withMessage('Tipo de exame inválido'),
     body('sintomas').notEmpty().withMessage('Os sintomas são obrigatórios'),
     body('segmentoPR').optional().isFloat({ gt: 0 }).withMessage('O segmento PR deve ser um número positivo'),
     body('frequenciaCardiaca').optional().isFloat({ gt: 0 }).withMessage('A frequência cardíaca deve ser um número positivo'),
@@ -111,7 +111,7 @@ exports.criarExame = async (req, res) => {
             }
         };
 
-        validarEnum(req.body.tipoExame, 'tipoExame', ['ECG', 'Holter', 'Ergometria', 'Outro']);
+        validarEnum(req.body.tipoExame, 'tipoExame', ['ECG', 'Holter', 'Ergometria', 'Mapa', 'Outro']);
         validarEnum(req.body.status || 'Pendente', 'status', ['Pendente', 'Concluído', 'Laudo realizado']);
 
         // ⬆️ Upload PDF pro Uploadcare
