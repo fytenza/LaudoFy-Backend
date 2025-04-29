@@ -94,7 +94,7 @@ UsuarioSchema.methods.verificarResetToken = function(token) {
     const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
     try {
         return (
-            hashedToken === this.resetSenhaToken &&
+            token === this.resetSenhaToken &&
             this.resetSenhaExpira > Date.now() &&
             (this.resetSenhaTentativas || 0) < 5
         );
