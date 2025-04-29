@@ -69,7 +69,7 @@ app.use(xss());
 app.use(hpp());
 
 // 🔄 ROTA CSRF ANTES DE TUDO (mesmo sem Mongo)
-const csrfProtection = csrf({ cookie: true });
+const csrfProtection = csrf();
 app.get('/api/csrf-token', csrfProtection, (req, res) => {
   const token = req.csrfToken();
   res.cookie('XSRF-TOKEN', token, {
