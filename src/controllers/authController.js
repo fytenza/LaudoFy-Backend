@@ -191,7 +191,7 @@ exports.login = async (req, res) => {
                 ip: req.ip,
                 userAgent: req.headers['user-agent']
             });
-            return res.status(400).json({ erro: 'Senha invpalida' });
+            return res.status(400).json({ erro: 'Senha inválida' });
         }
 
         const { accessToken, refreshToken, hashedRefreshToken } = gerarTokens(usuario);
