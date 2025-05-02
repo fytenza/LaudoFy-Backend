@@ -208,10 +208,9 @@ exports.gerarPdfLaudo = async (laudoId, exame, tipoExame, medicoNome, medicoId, 
     // Coluna 2 - Dados do exame
     let exameY = currentY;
     const column2X = doc.page.width / 2;
-    exameY = drawLabelValue('Data: ', exame?.dataExame ? 
+    exameY = drawLabelValue('Data do Exame: ', exame?.dataExame ? 
       new Date(exame.dataExame).toLocaleDateString('pt-BR') : 'Não informado', column2X, exameY);
     exameY = drawLabelValue('Médico: ', medicoNome || 'Não informado', column2X, exameY);
-    exameY = drawLabelValue('Sintomas: ', exame?.sintomas || 'Não informado', column2X, exameY);
     if (exame?.frequenciaCardiaca) {
       exameY = drawLabelValue('FC: ', formatValue(exame.frequenciaCardiaca, ' bpm'), column2X, exameY);
     }
