@@ -95,7 +95,7 @@ const PacienteSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
+        unique: false,
         lowercase: true,
         trim: true
     },
