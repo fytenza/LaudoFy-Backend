@@ -7,7 +7,7 @@ const { auditLog } = require('../middleware/auditMiddleware');
 
 const router = express.Router();
 
-// Rascunhos de Laudo
+// Criação do laudo já assinado
 router.post(
   '/',
   authMiddleware,
@@ -16,7 +16,7 @@ router.post(
   laudoController.criarLaudo
 );
 
-// Refazer Laudo
+// Refazer Laudo (se desejar, adapte para gerar PDF assinado também)
 router.post(
   '/:id/refazer',
   authMiddleware,
@@ -57,16 +57,6 @@ router.get(
   '/:id/pdf',
   authMiddleware,
   laudoController.gerarPdfLaudo
-);
-
-// Upload de Laudo Assinado
-router.post(
-  '/:id/upload',
-  authMiddleware,
-  autorizacaoMiddleware(['medico', 'admin']),
-  auditLog('upload_signed', 'Tentativa de upload de laudo assinado'),
-  upload.single('signedFile'),
-  laudoController.uploadSignedLaudo
 );
 
 // Download de Laudos

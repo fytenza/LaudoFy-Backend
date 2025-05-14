@@ -30,7 +30,7 @@ const server = http.createServer(app);
 // 🔐 CORS PRIMÁRIO – OBRIGATÓRIO ANTES DE TUDO
 const allowedOrigins = [
   'https://laudofy.fytenza.com.br',
-  'http://localhost:5173'
+  'http://localhost:5174'
 ];
 
 app.use((req, res, next) => {
@@ -84,7 +84,7 @@ app.get('/api/csrf-token', csrfProtection, (req, res) => {
 // 🚫 LIMITADOR DE REQUISIÇÕES
 app.use('/api', rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100
+  max: 100000
 }));
 
 // 🌐 CONEXÃO COM O MONGO
